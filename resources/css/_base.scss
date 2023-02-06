@@ -12,6 +12,7 @@
 	--pink: hsl(0, 100%, 80%);
 	--bg: hsl(340, 7%, 17%);
 	--accent: var(--red);
+	--accent-light: var(--pink);
 	font-size: clamp(16px, 2vw, 28px);
 }
 
@@ -102,7 +103,7 @@ section#footer {
 	a {
 		color: var(--main);
 		&:hover {
-			color: var(--pink);
+			color: var(--accent-light);
 		}
 	}
 	.copyright {
