@@ -57,8 +57,6 @@ h3,
 h4,
 h5,
 h6 {
-	// font-family: "Abril Fatface";
-	// text-transform: uppercase;
 	line-height: normal;
 	margin: 0;
 }
@@ -92,103 +90,9 @@ a {
 	color: var(--accent);
 }
 
-// .shadow-auto {
-// box-shadow: 0.4rem 0.4rem var(--accent);
-// }
-
-// .shadow-dark {
-// box-shadow: 0.4rem 0.4rem var(--bg);
-// }
-
-// .shadow-main {
-// box-shadow: 0.4rem 0.4rem var(--main);
-// }
-
-// .shadow-red {
-// box-shadow: 0.4rem 0.4rem var(--red);
-// }
-
-// .bg-red {
-// background-color: var(--red);
-// }
-
-// .pink {
-// color: var(--light-red);
-// }
-
-// button
-
-// .nice-button {
-// 	text-decoration: none;
-// 	color: inherit;
-// 	font-family: "Unica One";
-// 	position: relative;
-// 	display: block;
-// 	width: fit-content;
-// 	padding: 1rem;
-// 	&:before {
-// 		content: "";
-// 		position: absolute;
-// 		top: 0.75em;
-// 		left: 0;
-// 		display: block;
-// 		border-radius: 1rem;
-// 		background: var(--accent);
-// 		opacity: 0.75;
-// 		width: 2rem;
-// 		height: 2rem;
-// 		transition: width 0.3s ease, opacity 0.3s ease;
-// 	}
-// 	span {
-// 		position: relative;
-// 		font-size: 1rem;
-// 		font-weight: 900;
-// 		letter-spacing: 0.25em;
-// 		text-transform: uppercase;
-// 		vertical-align: middle;
-// 	}
-// 	svg {
-// 		position: relative;
-// 		top: -0.15rem;
-// 		margin-left: 0.5rem;
-// 		fill: none;
-// 		stroke-linecap: round;
-// 		stroke-linejoin: round;
-// 		stroke: var(--main);
-// 		stroke-width: 2;
-// 		transform: translateX(-0.4rem);
-// 		transition: transform 0.3s ease;
-// 	}
-// 	&.svg-dark svg {
-// 		stroke: var(--bg);
-// 	}
-// 	&:hover {
-// 		&:before {
-// 			width: 100%;
-// 			opacity: 1;
-// 		}
-// 		svg {
-// 			transform: translateX(0);
-// 		}
-// 		&:active {
-// 			transform: scale(0.96);
-// 		}
-// 	}
-// }
-
-// hide small
-
-// @media only screen and (max-width: 1450px) {
-// 	.hide-small {
-// 		display: none;
-// 	}
-// }
-
 // footer section
 
 section#footer {
-	// font-family: "Unica One";
-	// text-transform: uppercase;
 	background-color: var(--accent);
 	color: var(--main);
 	padding: 1rem 2rem;
@@ -197,10 +101,8 @@ section#footer {
 	position: relative;
 	a {
 		color: var(--main);
-		// text-decoration: none;
 		&:hover {
 			color: var(--pink);
-			// text-decoration: underline;
 		}
 	}
 	.copyright {
