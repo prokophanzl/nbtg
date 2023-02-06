@@ -6,8 +6,8 @@
 
 :root {
 	--main: hsl(42, 100%, 95%);
-	--yellow: hsl(41, 95%, 75%);
-	--light-yellow: hsl(41, 95%, 95%);
+	--yellow: hsl(50, 95%, 75%);
+	--light-yellow: hsl(50, 95%, 85%);
 	--red: hsl(0, 75%, 60%);
 	--pink: hsl(0, 100%, 80%);
 	--bg: hsl(340, 7%, 17%);
@@ -86,9 +86,24 @@ h6 {
 	font-size: 0.9rem;
 }
 
-a {
+a[href] {
 	text-decoration: underline;
 	color: var(--accent);
+}
+
+.accent-2 {
+	color: var(--yellow);
+}
+
+// header section
+
+section#header {
+	background-color: var(--accent);
+	color: var(--main);
+	padding: 0.5rem 1rem;
+	// position: relative;
+	font-family: "Righteous", sans-serif;
+	font-size: 2em;
 }
 
 // footer section
