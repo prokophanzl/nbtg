@@ -10,7 +10,7 @@
 	--light-red: #ff6b6b;
 	--bg: #191f26;
 	--accent: var(--red);
-	font-size: clamp(16px, 3vw, 28px);
+	font-size: clamp(16px, 2vw, 28px);
 }
 
 @media only screen and (max-width: 400px) {
@@ -27,6 +27,7 @@ body {
 	color: var(--main);
 	overflow: overlay;
 	scroll-behavior: smooth;
+	text-transform: lowercase;
 }
 
 @media (hover: hover) {
@@ -184,13 +185,19 @@ a {
 // footer section
 
 section#footer {
-	font-family: "Unica One";
-	text-transform: uppercase;
+	// font-family: "Unica One";
+	// text-transform: uppercase;
 	background-color: var(--accent);
 	padding: 1rem 2rem;
 	min-height: 0;
 	text-align: center;
 	position: relative;
+	a {
+		color: var(--main);
+		&:hover {
+			color: var(--accent);
+		}
+	}
 	.copyright {
 		opacity: 0.5;
 		font-size: 0.75rem;
