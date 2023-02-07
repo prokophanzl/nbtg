@@ -15,7 +15,7 @@ const events = [
 		day: 1,
 		start: 950,
 		length: 90,
-		color: "#ff9999",
+		color: "#ccccff",
 	},
 	{
 		name: "Dutch Language for Beginners",
@@ -23,7 +23,7 @@ const events = [
 		day: 1,
 		start: 1050,
 		length: 90,
-		color: "#ff9999",
+		color: "#ffcccc",
 	},
 
 	{
@@ -32,7 +32,7 @@ const events = [
 		day: 1,
 		start: 750,
 		length: 90,
-		color: "#ff9999",
+		color: "#ffcccc",
 	},
 
 	{
@@ -41,7 +41,7 @@ const events = [
 		day: 2,
 		start: 750,
 		length: 90,
-		color: "#ff9999",
+		color: "#ffcccc",
 	},
 
 	{
@@ -50,7 +50,7 @@ const events = [
 		day: 0,
 		start: 850,
 		length: 90,
-		color: "#ff9999",
+		color: "#ffcccc",
 	},
 
 	{
@@ -59,7 +59,7 @@ const events = [
 		day: 0,
 		start: 650,
 		length: 90,
-		color: "#ff9999",
+		color: "#ffcccc",
 	},
 
 	{
@@ -68,7 +68,7 @@ const events = [
 		day: 1,
 		start: 550,
 		length: 145,
-		color: "#ff9999",
+		color: "#ffcccc",
 	},
 
 	{
@@ -77,7 +77,7 @@ const events = [
 		day: 3,
 		start: 650,
 		length: 90,
-		color: "#ff9999",
+		color: "#ffcccc",
 	},
 
 	{
@@ -86,7 +86,7 @@ const events = [
 		day: 4,
 		start: 550,
 		length: 90,
-		color: "#ff9999",
+		color: "#ffcccc",
 	},
 
 	{
@@ -95,7 +95,7 @@ const events = [
 		day: 3,
 		start: 750,
 		length: 90,
-		color: "#ff9999",
+		color: "#ffcccc",
 	},
 
 	{
@@ -104,7 +104,7 @@ const events = [
 		day: 0,
 		start: 750,
 		length: 90,
-		color: "#ff9999",
+		color: "#ffcccc",
 	},
 
 	{
@@ -113,7 +113,7 @@ const events = [
 		day: 1,
 		start: 850,
 		length: 90,
-		color: "#ff9999",
+		color: "#ffcccc",
 	},
 
 	{
@@ -122,7 +122,7 @@ const events = [
 		day: 3,
 		start: 1230,
 		length: 75,
-		color: "#ff9999",
+		color: "#ffcccc",
 	},
 
 	{
@@ -131,7 +131,7 @@ const events = [
 		day: 3,
 		start: 1155,
 		length: 75,
-		color: "#ff9999",
+		color: "#ffcccc",
 	},
 
 	{
@@ -140,7 +140,7 @@ const events = [
 		day: 3,
 		start: 950,
 		length: 90,
-		color: "#ff9999",
+		color: "#ffcccc",
 	},
 ];
 
@@ -157,7 +157,17 @@ for (let i = settings.startHour; i < settings.endHour; i++) {
 }
 
 for (let i = 0; i < events.length; i++) {
-	$("#events-" + events[i].day).append("<div class='event' id='event-" + i + "'><h5>" + events[i].name + "</h5>" + events[i].note + "</div>");
+	$("#events-" + events[i].day).append(
+		"<div class='event' id='event-" +
+			i +
+			"' style='background-color: " +
+			events[i].color +
+			";'><h5>" +
+			events[i].name +
+			"</h5>" +
+			events[i].note +
+			"</div>"
+	);
 	$("#event-" + i).css("left", ((events[i].start - settings.startHour * 60) / minutes) * 100 + "%");
 	$("#event-" + i).css("width", (events[i].length / minutes) * 100 + "%");
 }
