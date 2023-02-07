@@ -15,6 +15,7 @@ const events = [
 		day: 1,
 		start: 950,
 		length: 90,
+		color: "#ff9999",
 	},
 	{
 		name: "Dutch Language for Beginners",
@@ -22,6 +23,7 @@ const events = [
 		day: 1,
 		start: 1050,
 		length: 90,
+		color: "#ff9999",
 	},
 
 	{
@@ -30,6 +32,7 @@ const events = [
 		day: 1,
 		start: 750,
 		length: 90,
+		color: "#ff9999",
 	},
 
 	{
@@ -38,6 +41,7 @@ const events = [
 		day: 2,
 		start: 750,
 		length: 90,
+		color: "#ff9999",
 	},
 
 	{
@@ -46,6 +50,7 @@ const events = [
 		day: 0,
 		start: 850,
 		length: 90,
+		color: "#ff9999",
 	},
 
 	{
@@ -54,6 +59,7 @@ const events = [
 		day: 0,
 		start: 650,
 		length: 90,
+		color: "#ff9999",
 	},
 
 	{
@@ -62,6 +68,7 @@ const events = [
 		day: 1,
 		start: 550,
 		length: 145,
+		color: "#ff9999",
 	},
 
 	{
@@ -70,6 +77,7 @@ const events = [
 		day: 3,
 		start: 650,
 		length: 90,
+		color: "#ff9999",
 	},
 
 	{
@@ -78,6 +86,7 @@ const events = [
 		day: 4,
 		start: 550,
 		length: 90,
+		color: "#ff9999",
 	},
 
 	{
@@ -86,6 +95,7 @@ const events = [
 		day: 3,
 		start: 750,
 		length: 90,
+		color: "#ff9999",
 	},
 
 	{
@@ -94,6 +104,7 @@ const events = [
 		day: 0,
 		start: 750,
 		length: 90,
+		color: "#ff9999",
 	},
 
 	{
@@ -102,6 +113,7 @@ const events = [
 		day: 1,
 		start: 850,
 		length: 90,
+		color: "#ff9999",
 	},
 
 	{
@@ -110,6 +122,7 @@ const events = [
 		day: 3,
 		start: 1230,
 		length: 75,
+		color: "#ff9999",
 	},
 
 	{
@@ -118,6 +131,7 @@ const events = [
 		day: 3,
 		start: 1155,
 		length: 75,
+		color: "#ff9999",
 	},
 
 	{
@@ -126,8 +140,17 @@ const events = [
 		day: 3,
 		start: 950,
 		length: 90,
+		color: "#ff9999",
 	},
 ];
+
+// function selectElement(id, valueToSelect) {
+// 	// let element = document.getElementById(id);
+// 	$("#" + id)
+// 		.children("select")
+// 		.val(valueToSelect)
+// 		.change();
+// }
 
 for (let i = settings.startHour; i < settings.endHour; i++) {
 	$("#times-container").append("<div>" + i + ":00</div>");
@@ -139,6 +162,49 @@ for (let i = 0; i < events.length; i++) {
 	$("#event-" + i).css("width", (events[i].length / minutes) * 100 + "%");
 }
 
-html2canvas(document.getElementById("timetable-wrapper"), { scale: 8 }).then(function (canvas) {
-	document.getElementById("output").appendChild(canvas);
-});
+for (let i = 0; i < events.length; i++) {
+	$("#event-manager").append(
+		'<div id="event-item-' +
+			i +
+			'">\
+			<input type="text" name="event-name" class="event-name" placeholder="Event Name" value="' +
+			events[i].name +
+			'" />\
+			<input type="text" name="event-note" class="event-note" placeholder="Event Note" value="' +
+			events[i].note +
+			'" />\
+			<input type="color" name="event-color" class="event-color" value="' +
+			events[i].color +
+			'" />\
+			<input type="time" name="event-start" class="event-start" value=' +
+			("00" + Math.floor(events[i].start / 60)).slice(-2) + // pad with leading zeroes
+			":" +
+			("00" + (events[i].start % 60)).slice(-2) +
+			' />\
+			<input type="time" name="event-end" class="event-end" value="' +
+			("00" + Math.floor((events[i].start + events[i].length) / 60)).slice(-2) +
+			":" +
+			("00" + ((events[i].start + events[i].length) % 60)).slice(-2) +
+			'"/>\
+			<select name="event-day">\
+				<option value="0">Monday</option>\
+				<option value="1">Tuesday</option>\
+				<option value="2">Wednesday</option>\
+				<option value="3">Thursday</option>\
+				<option value="4">Friday</option>\
+				<option value="5">Saturday</option>\
+				<option value="6">Sunday</option>\
+			</select>\
+		</div>'
+	);
+	$("#event-item-" + i)
+		.children("select")
+		.val(events[i].day)
+		.change();
+}
+
+// html2canvas(document.getElementById("timetable-wrapper"), { scale: 8 }).then(function (canvas) {
+// 	document.getElementById("output").appendChild(canvas);
+// });
+
+// $("#event-1").children("select").val("Tuesday").change();
