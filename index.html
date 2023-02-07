@@ -26,6 +26,7 @@
 			integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY="
 			crossorigin="anonymous"
 		></script>
+		<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 		<title>nbtg.</title>
 	</head>
 	<body>
@@ -33,43 +34,46 @@
 		<section id="body">
 			<h1>Timetable</h1>
 			<div class="timetable-container">
-				<div id="timetable">
-					<div class="row-times">
-						<div class="day"></div>
-						<div class="times" id="times-container"></div>
-					</div>
-					<div class="row" class="mon">
-						<div class="day">Mon</div>
-						<div class="events" id="events-0"></div>
-					</div>
-					<div class="row" class="tue">
-						<div class="day">Tue</div>
-						<div class="events" id="events-1"></div>
-					</div>
-					<div class="row" class="wed">
-						<div class="day">Wed</div>
-						<div class="events" id="events-2"></div>
-					</div>
-					<div class="row" class="thu">
-						<div class="day">Thu</div>
-						<div class="events" id="events-3"></div>
-					</div>
-					<div class="row" class="fri">
-						<div class="day">Fri</div>
-						<div class="events" id="events-4"></div>
-					</div>
-					<div class="row" class="sat">
-						<div class="day">Sat</div>
-						<div class="events" id="events-5"></div>
-					</div>
-					<div class="row" class="sun">
-						<div class="day">Sun</div>
-						<div class="events" id="events-6"></div>
+				<div id="timetable-wrapper">
+					<div id="timetable">
+						<div class="row-times">
+							<div class="day"></div>
+							<div class="times" id="times-container"></div>
+						</div>
+						<div class="row" class="mon">
+							<div class="day">Mon</div>
+							<div class="events" id="events-0"></div>
+						</div>
+						<div class="row" class="tue">
+							<div class="day">Tue</div>
+							<div class="events" id="events-1"></div>
+						</div>
+						<div class="row" class="wed">
+							<div class="day">Wed</div>
+							<div class="events" id="events-2"></div>
+						</div>
+						<div class="row" class="thu">
+							<div class="day">Thu</div>
+							<div class="events" id="events-3"></div>
+						</div>
+						<div class="row" class="fri">
+							<div class="day">Fri</div>
+							<div class="events" id="events-4"></div>
+						</div>
+						<div class="row" class="sat">
+							<div class="day">Sat</div>
+							<div class="events" id="events-5"></div>
+						</div>
+						<div class="row" class="sun">
+							<div class="day">Sun</div>
+							<div class="events" id="events-6"></div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 		<section id="footer">
+			<div id="output"></div>
 			<footer>
 				<span class="copyright">
 					&copy; <a href="https://dustah.com">Ash Hanžl 2023</a> | <a href="https://github.com/prokophanzl/nbtg">GitHub</a> |

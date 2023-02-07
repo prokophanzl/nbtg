@@ -138,3 +138,7 @@ for (let i = 0; i < events.length; i++) {
 	$("#event-" + i).css("left", ((events[i].start - settings.startHour * 60) / minutes) * 100 + "%");
 	$("#event-" + i).css("width", (events[i].length / minutes) * 100 + "%");
 }
+
+html2canvas(document.getElementById("timetable-wrapper"), { scale: 8 }).then(function (canvas) {
+	document.getElementById("output").appendChild(canvas);
+});

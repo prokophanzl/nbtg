@@ -3,15 +3,23 @@
 @import "base";
 
 .timetable-container {
-	width: 100%;
-	overflow: scroll;
-	color: var(--main);
+	border: 0.1rem solid var(--main);
+	display: inline-block;
+}
+
+#timetable-wrapper {
+	--bg: #fff;
+	padding: 0.5rem;
+	background-color: var(--bg);
+	// width: auto;
+	// overflow: scroll;
+	// color: var(--main);
 }
 
 #timetable {
-	--bg: #fff;
 	background-color: var(--bg);
 	border: 0.1rem solid var(--main);
+	margin: 1rem;
 	aspect-ratio: 16 / 9;
 	height: 30.0434375rem;
 	display: flex;
