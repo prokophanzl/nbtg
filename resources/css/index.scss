@@ -31,6 +31,12 @@
 		.day {
 			border-right: 0.1rem solid var(--main);
 			width: 2rem;
+			background-color: var(--accent);
+			color: var(--bg);
+			font-family: "Righteous", sans-serif;
+			font-size: 0.65rem;
+			display: grid;
+			place-items: center;
 		}
 		.times {
 			font-size: 0.5rem;
