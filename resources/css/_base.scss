@@ -5,17 +5,21 @@
 }
 
 :root {
-	--bg: hsl(42, 100%, 95%);
-	--main: hsl(340, 7%, 17%);
-	--main-light: hsl(340, 3%, 80%);
+	--light: hsl(50, 100%, 95%);
+	--dark: hsl(340, 7%, 17%);
 
 	--yellow: hsl(50, 95%, 75%);
-	--light-yellow: hsl(50, 95%, 85%);
+	--light-yellow: hsl(50, 100%, 88%);
 	--red: hsl(0, 75%, 60%);
 	--pink: hsl(0, 100%, 80%);
+	--light-pink: hsl(0, 100%, 90%);
+
+	--main: var(--dark);
+	--bg: var(--light);
 
 	--accent: var(--red);
-	--accent-light: var(--pink);
+	--accent-lighter: var(--pink);
+	--accent-light: var(--light-pink);
 	--accent-2: var(--yellow);
 	--accent-2-light: var(--light-yellow);
 
@@ -104,7 +108,7 @@ a[href] {
 
 section#header {
 	background-color: var(--accent);
-	color: var(--main);
+	color: var(--light);
 	padding: 0.5rem 1rem;
 	// position: relative;
 	font-family: "Righteous", sans-serif;

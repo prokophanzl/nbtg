@@ -20,12 +20,12 @@
 		<meta name="apple-mobile-web-app-title" content="nbtg" />
 		<meta name="HandheldFriendly" content="true" />
 		<link rel="canonical" href="index.html" />
-		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script
 			src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
 			integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY="
 			crossorigin="anonymous"
-		></script> -->
+		></script>
 		<title>nbtg.</title>
 	</head>
 	<body>
@@ -36,82 +36,47 @@
 				<div id="timetable">
 					<div class="row-times">
 						<div class="day"></div>
-						<div class="times">
-							<div>
-								<a>9 a.m.</a>
-							</div>
-							<div>
-								<a>10 a.m.</a>
-							</div>
-							<div>
-								<a>11 a.m.</a>
-							</div>
-							<div>
-								<a>12 p.m.</a>
-							</div>
-							<div>
-								<a>1 p.m.</a>
-							</div>
-							<div>
-								<a>2 p.m.</a>
-							</div>
-							<div>
-								<a>3 p.m.</a>
-							</div>
-							<div>
-								<a>4 p.m.</a>
-							</div>
-							<div>
-								<a>5 p.m.</a>
-							</div>
-							<div>
-								<a>6 p.m.</a>
-							</div>
-							<div>
-								<a>7 p.m.</a>
-							</div>
-							<div>
-								<a>8 p.m.</a>
-							</div>
-						</div>
+						<div class="times" id="times-container"></div>
 					</div>
 					<div class="row" class="mon">
 						<div class="day">Mon</div>
+						<div class="events" id="events-0"></div>
 					</div>
 					<div class="row" class="tue">
 						<div class="day">Tue</div>
+						<div class="events" id="events-1"></div>
 					</div>
 					<div class="row" class="wed">
 						<div class="day">Wed</div>
+						<div class="events" id="events-2"></div>
 					</div>
 					<div class="row" class="thu">
 						<div class="day">Thu</div>
+						<div class="events" id="events-3"></div>
 					</div>
 					<div class="row" class="fri">
 						<div class="day">Fri</div>
+						<div class="events" id="events-4"></div>
 					</div>
 					<div class="row" class="sat">
 						<div class="day">Sat</div>
+						<div class="events" id="events-5"></div>
 					</div>
 					<div class="row" class="sun">
 						<div class="day">Sun</div>
-						<!-- <div id="test-event">
-							<a class="event-title">Test Event</a><br />
-							<a class="event-label event-time">18:00 — 20:00</a><br />
-							<a class="event-label event-place">C507</a>
-						</div> -->
+						<div class="events" id="events-6"></div>
 					</div>
 				</div>
 			</div>
 		</section>
 		<section id="footer">
 			<footer>
-				<span class="copyright"
-					>&copy; <a href="https://dustah.com">Ash Hanžl 2023</a> | <a href="https://github.com/prokophanzl/nbtg">GitHub</a> |
-					<a href="">Report Issue / Request Feature</a></span
-				>
+				<span class="copyright">
+					&copy; <a href="https://dustah.com">Ash Hanžl 2023</a> | <a href="https://github.com/prokophanzl/nbtg">GitHub</a> |
+					<a href="">Report Issue / Request Feature</a>
+				</span>
 			</footer>
 		</section>
-		<script src="resources/js/scroll-arrow.js"></script>
+		<script src="resources/js/main.js"></script>
 	</body>
 </html>
