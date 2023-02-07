@@ -5,20 +5,22 @@
 }
 
 :root {
-	--main: hsl(42, 100%, 95%);
+	--bg: hsl(42, 100%, 95%);
+	--main: hsl(340, 7%, 17%);
+	--main-light: hsl(340, 3%, 80%);
 
 	--yellow: hsl(50, 95%, 75%);
 	--light-yellow: hsl(50, 95%, 85%);
 	--red: hsl(0, 75%, 60%);
 	--pink: hsl(0, 100%, 80%);
-	--bg: hsl(340, 7%, 17%);
 
 	--accent: var(--red);
 	--accent-light: var(--pink);
 	--accent-2: var(--yellow);
 	--accent-2-light: var(--light-yellow);
 
-	font-size: clamp(16px, 2vw, 28px);
+	// font-size: clamp(16px, 2vw, 28px);
+	font-size: 16px;
 }
 
 @media only screen and (max-width: 400px) {

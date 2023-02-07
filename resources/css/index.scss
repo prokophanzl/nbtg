@@ -2,30 +2,79 @@
 
 @import "base";
 
-#timetable {
-	font-size: 0.6rem;
+.timetable-container {
+	// border: 3px solid var(--main);
 	width: 100%;
-	height: 60vw;
-	// left and right border 2px solid white
-	border: 2px solid var(--main);
-	// aspect-ratio: 16 / 9;
+	// max-width: 58.9rem;
+	// width: clamp(0px, 100%, 58.9rem);
+	overflow: scroll;
+	// padding: 1rem;
+	color: var(--main);
+}
+
+#timetable {
+	--bg: #fff;
+	background-color: var(--bg);
+	// font-size: 0.6rem;
+	// margin: 0 auto;
+	// width: 100%;
+	height: 30rem;
+	border: 3px solid var(--main);
+	aspect-ratio: 16 / 9;
 	display: flex;
 	flex-direction: column;
-	> div {
-		border-top: 2px solid var(--main);
-		flex: 1;
+	> div.row-times {
+		min-height: 2rem;
+		max-height: 2rem;
 		display: flex;
-		overflow: scroll;
-		&:nth-of-type(1) {
-			border-top: none;
+		.day {
+			border-right: 3px solid var(--main);
+			width: 4rem;
 		}
+		.times {
+			font-size: 0.8rem;
+			font-weight: bold;
+			flex: 1;
+			display: flex;
+			> div {
+				flex: 1;
+				border-left: 2px dotted var(--main-light);
+				&:first-of-type {
+					border-left: none;
+				}
+				position: relative;
+				> a {
+					position: absolute;
+					bottom: 0.2rem;
+					left: 0.25rem;
+				}
+			}
+		}
+	}
+	> div {
+		flex: 1;
+	}
+	> div.row {
+		min-height: 4rem;
+		max-height: 4rem;
+		border-top: 3px solid var(--main);
 		> div {
-			border: 4px solid var(--accent-2);
+			padding: 0.25rem;
+			height: 100%;
+			// border: 4px solid var(--accent-2);
 			flex: 1;
 			a.event-title {
 				font-size: 1.15em;
 				font-weight: bold;
 			}
+		}
+		.day {
+			font-weight: bold;
+			// line-height: 4rem;
+			font-size: 1rem;
+			border-right: 3px solid var(--main);
+			width: 4rem;
+			text-align: center;
 		}
 	}
 }
