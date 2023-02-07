@@ -78,6 +78,20 @@
 	}
 }
 
+#export-btn {
+	margin-top: 1rem;
+	background-color: var(--accent);
+	color: #fff;
+	font-family: inherit;
+	font-size: 1.5rem;
+	padding: 0.5rem 2rem;
+	border: 0.1rem solid var(--main);
+	cursor: pointer;
+	&:hover {
+		background-color: var(--accent-lighter);
+	}
+}
+
 .events {
 	position: relative;
 	> div {

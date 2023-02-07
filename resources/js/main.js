@@ -144,14 +144,6 @@ const events = [
 	},
 ];
 
-// function selectElement(id, valueToSelect) {
-// 	// let element = document.getElementById(id);
-// 	$("#" + id)
-// 		.children("select")
-// 		.val(valueToSelect)
-// 		.change();
-// }
-
 for (let i = settings.startHour; i < settings.endHour; i++) {
 	$("#times-container").append("<div>" + i + ":00</div>");
 }
@@ -213,8 +205,8 @@ for (let i = 0; i < events.length; i++) {
 		.change();
 }
 
-// html2canvas(document.getElementById("timetable-wrapper"), { scale: 8 }).then(function (canvas) {
-// 	document.getElementById("output").appendChild(canvas);
-// });
-
-// $("#event-1").children("select").val("Tuesday").change();
+$("#export-btn").click(function () {
+	html2canvas(document.getElementById("timetable-wrapper"), { scale: 8 }).then(function (canvas) {
+		document.getElementById("output").appendChild(canvas);
+	});
+});
