@@ -35,7 +35,6 @@ body {
 	color: var(--main);
 	overflow: overlay;
 	scroll-behavior: smooth;
-	text-transform: lowercase;
 }
 
 @media (hover: hover) {
@@ -125,6 +124,7 @@ section#footer {
 	min-height: 0;
 	text-align: center;
 	position: relative;
+	text-transform: lowercase;
 	a {
 		color: var(--main);
 		&:hover {
