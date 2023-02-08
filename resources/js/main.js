@@ -83,7 +83,7 @@ const events = [
 	{
 		name: "Aphasia: an introduction from a linguistic perspective",
 		note: "C507",
-		day: 4,
+		day: 3,
 		start: 550,
 		length: 90,
 		color: "#ffcccc",
@@ -139,6 +139,24 @@ const events = [
 		note: "C244",
 		day: 3,
 		start: 950,
+		length: 90,
+		color: "#ffcccc",
+	},
+
+	{
+		name: "Francouzština. Civilisation française et francophone",
+		note: "C455A",
+		day: 4,
+		start: 650,
+		length: 90,
+		color: "#ffcccc",
+	},
+
+	{
+		name: "Francouzština. Le français parlé, reflet de la pop-culture",
+		note: "CM203",
+		day: 4,
+		start: 750,
 		length: 90,
 		color: "#ffcccc",
 	},
