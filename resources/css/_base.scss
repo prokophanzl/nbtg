@@ -13,6 +13,7 @@
 	--red: hsl(0, 75%, 60%);
 	--pink: hsl(0, 100%, 80%);
 	--light-pink: hsl(0, 100%, 90%);
+	--lightest-pink: hsl(0, 100%, 95%);
 
 	--main: var(--dark);
 	--bg: var(--light);
@@ -20,6 +21,7 @@
 	--accent: var(--red);
 	--accent-lighter: var(--pink);
 	--accent-light: var(--light-pink);
+	--accent-lightest: var(--lightest-pink);
 	--accent-2: var(--yellow);
 	--accent-2-light: var(--light-yellow);
 

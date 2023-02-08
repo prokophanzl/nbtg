@@ -115,39 +115,106 @@
 	}
 }
 
-#event-manager {
-	// width: 100%;
-	display: grid;
-	gap: 0.5rem;
-	> div {
+.event-manager-wrapper {
+	input,
+	select {
+		font-family: inherit;
+		font-size: 1rem;
+		border: 0.1rem solid var(--main);
+		width: 100%;
+		padding: 0 0.5rem;
+		height: 3rem;
+		background-color: #fff;
+		&:focus {
+			background-color: var(--accent-lightest);
+			outline: 0.1rem solid var(--accent-lighter);
+			outline-offset: 0.1rem;
+		}
+		&:hover {
+			background-color: var(--accent-lightest);
+		}
+	}
+	div.card {
 		background-color: var(--accent-2-light);
 		border: 0.1rem solid var(--main);
 		padding: 0.5rem;
 		display: grid;
-		// grid-template-columns: auto auto auto;
 		gap: 0.5rem;
-		input,
-		select {
-			font-family: inherit;
-			font-size: 1rem;
-			border: 0.1rem solid var(--main);
-			width: 100%;
-			padding: 0.4rem;
-			background-color: #fff;
-			&:focus {
-				outline: 0.1rem solid var(--accent-lighter);
-				outline-offset: 0.1rem;
+		h4 {
+			grid-area: e-heading;
+		}
+	}
+	input[type="text"] {
+		&::placeholder {
+			color: inherit;
+			opacity: 0.5;
+		}
+	}
+	input[type="color"] {
+		padding: 0.25rem;
+		width: 100%;
+	}
+	input[type="button"],
+	input[type="color"],
+	input[type="time"],
+	select {
+		cursor: pointer;
+	}
+	.event-name {
+		grid-area: e-name;
+	}
+	.event-note {
+		grid-area: e-note;
+	}
+	.event-color {
+		grid-area: e-color;
+		min-width: 3rem;
+	}
+	.event-start {
+		grid-area: e-start;
+	}
+	.event-end {
+		grid-area: e-end;
+	}
+	.event-day {
+		grid-area: e-day;
+	}
+	.delete-event {
+		grid-area: e-delete;
+	}
+	.delete-event,
+	.clear-events {
+		background-color: var(--accent-lighter);
+		&:hover {
+			background-color: var(--accent);
+		}
+	}
+	.duplicate-event {
+		grid-area: e-duplicate;
+	}
+	#event-manager {
+		display: grid;
+		gap: 0.5rem;
+		div.card {
+			grid-template-areas:
+				"e-heading e-heading e-heading e-heading"
+				"e-name e-name e-note e-note"
+				"e-start e-end e-day e-color"
+				"e-duplicate e-duplicate e-delete e-delete";
+		}
+		@media (max-width: 520px) {
+			div.card {
+				grid-template-areas:
+					"e-heading e-heading e-heading e-heading"
+					"e-name e-name e-name e-name"
+					"e-note e-note e-note e-note"
+					"e-start e-start e-end e-end"
+					"e-day e-day e-day e-color"
+					"e-duplicate e-duplicate e-delete e-delete";
 			}
 		}
-		input[type="text"] {
-			&::placeholder {
-				color: inherit;
-				opacity: 0.5;
-			}
-		}
-		input[type="color"] {
-			height: 2.175rem;
-			padding: 0.2rem;
-		}
+	}
+	.event-manager-buttons {
+		margin-top: 0.5rem;
 	}
 }

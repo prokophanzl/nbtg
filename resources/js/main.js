@@ -166,9 +166,12 @@ for (let i = 0; i < events.length; i++) {
 
 for (let i = 0; i < events.length; i++) {
 	$("#event-manager").append(
-		'<div id="event-item-' +
+		'<div class="event-item card" id="event-item-' +
 			i +
 			'">\
+			<h4>' +
+			events[i].name +
+			'</h4>\
 			<input type="text" name="event-name" class="event-name" placeholder="Event Name" value="' +
 			events[i].name +
 			'" />\
@@ -188,7 +191,7 @@ for (let i = 0; i < events.length; i++) {
 			":" +
 			("00" + ((events[i].start + events[i].length) % 60)).slice(-2) +
 			'"/>\
-			<select name="event-day">\
+			<select name="event-day" class="event-day">\
 				<option value="0">Monday</option>\
 				<option value="1">Tuesday</option>\
 				<option value="2">Wednesday</option>\
@@ -197,6 +200,8 @@ for (let i = 0; i < events.length; i++) {
 				<option value="5">Saturday</option>\
 				<option value="6">Sunday</option>\
 			</select>\
+			<input type="button" name="duplicate-event" class="duplicate-event" value="Duplicate Event" />\
+			<input type="button" name="delete-event" class="delete-event" value="Delete Event" />\
 		</div>'
 	);
 	$("#event-item-" + i)
