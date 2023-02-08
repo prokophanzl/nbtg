@@ -196,26 +196,27 @@
 		display: grid;
 		gap: 0.5rem;
 		div.card {
-			grid-template-columns: 1fr 1fr 1fr 1fr;
+			grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 			grid-template-areas:
-				"e-heading e-heading e-heading e-heading"
-				"e-name e-name e-note e-note"
-				"e-start e-end e-day e-color"
-				"e-duplicate e-duplicate e-delete e-delete";
+				"e-heading e-heading e-heading e-heading e-heading e-heading e-heading e-heading e-heading e-heading e-heading e-heading"
+				"e-name e-name e-name e-name e-name e-name e-note e-note e-note e-note e-note e-note"
+				"e-start e-start e-start e-end e-end e-end e-day e-day e-day e-day e-color e-color"
+				"e-duplicate e-duplicate e-duplicate e-duplicate e-duplicate e-duplicate e-delete e-delete e-delete e-delete e-delete e-delete";
 		}
 		@media (max-width: 750px) {
 			div.card {
 				grid-template-areas:
-					"e-heading e-heading e-heading e-heading"
-					"e-name e-name e-name e-name"
-					"e-note e-note e-note e-note"
-					"e-start e-start e-end e-end"
-					"e-day e-day e-day e-color"
-					"e-duplicate e-duplicate e-delete e-delete";
+					"e-heading e-heading e-heading e-heading e-heading e-heading e-heading e-heading e-heading e-heading e-heading e-heading"
+					"e-name e-name e-name e-name e-name e-name e-name e-name e-name e-name e-name e-name"
+					"e-note e-note e-note e-note e-note e-note e-note e-note e-note e-note e-note e-note"
+					"e-start e-start e-start e-start e-start e-start e-end e-end e-end e-end e-end e-end"
+					"e-day e-day e-day e-day e-day e-day e-day e-day e-day e-color e-color e-color"
+					"e-duplicate e-duplicate e-duplicate e-duplicate e-duplicate e-duplicate e-delete e-delete e-delete e-delete e-delete e-delete";
 			}
 		}
 	}
 	.event-manager-buttons {
 		margin-top: 0.5rem;
+		grid-template-columns: 1fr 1fr;
 	}
 }
