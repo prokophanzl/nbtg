@@ -62,11 +62,11 @@
 							<div class="day">Fri</div>
 							<div class="events" id="events-4"></div>
 						</div>
-						<div class="row" class="sat">
+						<div class="row" class="sat weekend">
 							<div class="day">Sat</div>
 							<div class="events" id="events-5"></div>
 						</div>
-						<div class="row" class="sun">
+						<div class="row" class="sun weekend">
 							<div class="day">Sun</div>
 							<div class="events" id="events-6"></div>
 						</div>
@@ -104,6 +104,30 @@
 				</div>
 			</div>
 			<h1>Settings</h1>
+			<div class="settings-container">
+				<input type="checkbox" name="show-weekends" id="show-weekends" />
+				<label for="show-weekends">Show Weekends</label>
+				<br />
+				<input type="number" name="tt-start" id="tt-start" value="8" placeholder="8" min="1" max="12" />
+				<select name="tt-start-am-pm" id="tt-start-am-pm">
+					<option value="am" selected>a.m.</option>
+					<option value="pm">p.m.</option>
+				</select>
+				<label for="tt-start">Start Time</label>
+				<br />
+				<input type="number" name="tt-end" id="tt-end" value="8" placeholder="8" min="1" max="12" />
+				<select name="tt-end-am-pm" id="tt-end-am-pm">
+					<option value="am">a.m.</option>
+					<option value="pm" selected>p.m.</option>
+				</select>
+				<label for="tt-end">End Time</label>
+				<br />
+				<select name="tt-time-format" id="tt-time-format">
+					<option value="12h">12h — 8 p.m.</option>
+					<option value="24h" selected>24h — 20:00</option>
+				</select>
+				<label for="tt-time-format">Time Format</label>
+			</div>
 		</section>
 		<section id="footer">
 			<footer>
