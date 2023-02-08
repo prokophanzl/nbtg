@@ -196,13 +196,14 @@
 		display: grid;
 		gap: 0.5rem;
 		div.card {
+			grid-template-columns: 1fr 1fr 1fr 1fr;
 			grid-template-areas:
 				"e-heading e-heading e-heading e-heading"
 				"e-name e-name e-note e-note"
 				"e-start e-end e-day e-color"
 				"e-duplicate e-duplicate e-delete e-delete";
 		}
-		@media (max-width: 520px) {
+		@media (max-width: 750px) {
 			div.card {
 				grid-template-areas:
 					"e-heading e-heading e-heading e-heading"
