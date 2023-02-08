@@ -3,7 +3,7 @@
 const settings = {
 	startHour: 9,
 	endHour: 22,
-	showWeekends: true,
+	showWeekends: false,
 };
 
 const minutes = 60 * (settings.endHour - settings.startHour);
@@ -161,6 +161,10 @@ const events = [
 		color: "#ffcccc",
 	},
 ];
+
+if (!settings.showWeekends) {
+	$(".weekend").css("display", "none");
+}
 
 for (let i = settings.startHour; i < settings.endHour; i++) {
 	$("#times-container").append("<div>" + i + ":00</div>");
