@@ -11,17 +11,14 @@
 	--bg: #fff;
 	padding: 0.5rem;
 	background-color: var(--bg);
-	// width: auto;
-	// overflow: scroll;
-	// color: var(--main);
 }
 
 #timetable {
 	background-color: var(--bg);
 	border: 0.1rem solid var(--main);
 	margin: 1rem;
-	aspect-ratio: 16 / 9;
-	height: 30.0434375rem;
+	aspect-ratio: 1.414 / 1;
+	height: 32rem;
 	display: flex;
 	flex-direction: column;
 	> div.row-times {
@@ -63,7 +60,6 @@
 		border-top: 0.1rem solid var(--main);
 		display: flex;
 		> div {
-			// height: 100%;
 			flex: 1;
 		}
 		.day {
@@ -71,7 +67,6 @@
 			font-size: 0.5rem;
 			border-right: 0.1rem solid var(--main);
 			max-width: 2rem;
-			height: 4rem;
 			display: grid;
 			place-items: center;
 		}
