@@ -1,5 +1,3 @@
-// array of events
-
 const settings = {
 	startHour: 9,
 	endHour: 22,
