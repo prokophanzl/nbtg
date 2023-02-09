@@ -132,12 +132,15 @@ section#footer {
 	text-align: center;
 	position: relative;
 	text-transform: lowercase;
+
 	a {
 		color: var(--main);
+
 		&:hover {
 			color: var(--accent-light);
 		}
 	}
+
 	.copyright {
 		font-size: 0.75rem;
 	}
