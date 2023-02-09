@@ -4,6 +4,9 @@ const settings = {
 	startHour: 9,
 	endHour: 22,
 	showWeekends: false,
+	twentyFourHour: true,
+	aspectRatio: 16 / 9,
+	showTimes: false,
 };
 
 const minutes = 60 * (settings.endHour - settings.startHour);

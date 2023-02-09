@@ -105,9 +105,6 @@
 			</div>
 			<h1>Settings</h1>
 			<div class="settings-container">
-				<input type="checkbox" name="show-weekends" id="show-weekends" />
-				<label for="show-weekends">Show Weekends</label>
-				<br />
 				<input type="number" name="tt-start" id="tt-start" value="8" placeholder="8" min="1" max="12" />
 				<select name="tt-start-am-pm" id="tt-start-am-pm">
 					<option value="am" selected>a.m.</option>
@@ -122,6 +119,9 @@
 				</select>
 				<label for="tt-end">End Time</label>
 				<br />
+				<input type="checkbox" name="show-weekends" id="show-weekends" />
+				<label for="show-weekends">Show Weekends</label>
+				<br />
 				<select name="tt-time-format" id="tt-time-format">
 					<option value="12h">12h — 8 p.m.</option>
 					<option value="24h" selected>24h — 20:00</option>
@@ -131,6 +131,9 @@
 				<input type="number" name="tt-aspect-1" id="tt-aspect-1" /> :
 				<input type="number" name="tt-aspect-2" id="tt-aspect-2" />
 				<label for="tt-aspect-1">Aspect Ratio</label>
+				<br />
+				<input type="checkbox" name="tt-show-times" id="tt-show-times" />
+				<label for="tt-show-times">Show Event Times</label>
 			</div>
 		</section>
 		<section id="footer">
