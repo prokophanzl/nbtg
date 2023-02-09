@@ -15,7 +15,7 @@ const events = [
 		day: 1,
 		start: 950,
 		length: 90,
-		color: "#ccccff",
+		color: "#FFFAE3",
 	},
 	{
 		name: "Dutch Language for Beginners",
@@ -23,7 +23,7 @@ const events = [
 		day: 1,
 		start: 1050,
 		length: 90,
-		color: "#ffcccc",
+		color: "#FFFAE3",
 	},
 
 	{
@@ -32,7 +32,7 @@ const events = [
 		day: 1,
 		start: 750,
 		length: 90,
-		color: "#ffcccc",
+		color: "#FFFAE3",
 	},
 
 	{
@@ -41,7 +41,7 @@ const events = [
 		day: 2,
 		start: 750,
 		length: 90,
-		color: "#ffcccc",
+		color: "#FFFAE3",
 	},
 
 	{
@@ -50,7 +50,7 @@ const events = [
 		day: 0,
 		start: 850,
 		length: 90,
-		color: "#ffcccc",
+		color: "#FFFAE3",
 	},
 
 	{
@@ -59,7 +59,7 @@ const events = [
 		day: 0,
 		start: 650,
 		length: 90,
-		color: "#ffcccc",
+		color: "#FFFAE3",
 	},
 
 	{
@@ -68,7 +68,7 @@ const events = [
 		day: 1,
 		start: 550,
 		length: 145,
-		color: "#ffcccc",
+		color: "#FFFAE3",
 	},
 
 	{
@@ -77,7 +77,7 @@ const events = [
 		day: 3,
 		start: 650,
 		length: 90,
-		color: "#ffcccc",
+		color: "#FFFAE3",
 	},
 
 	{
@@ -86,7 +86,7 @@ const events = [
 		day: 3,
 		start: 550,
 		length: 90,
-		color: "#ffcccc",
+		color: "#FFFAE3",
 	},
 
 	{
@@ -95,7 +95,7 @@ const events = [
 		day: 3,
 		start: 750,
 		length: 90,
-		color: "#ffcccc",
+		color: "#FFFAE3",
 	},
 
 	{
@@ -104,7 +104,7 @@ const events = [
 		day: 0,
 		start: 750,
 		length: 90,
-		color: "#ffcccc",
+		color: "#FFFAE3",
 	},
 
 	{
@@ -113,7 +113,7 @@ const events = [
 		day: 1,
 		start: 850,
 		length: 90,
-		color: "#ffcccc",
+		color: "#FFFAE3",
 	},
 
 	{
@@ -122,7 +122,7 @@ const events = [
 		day: 3,
 		start: 1230,
 		length: 75,
-		color: "#ffcccc",
+		color: "#FFFAE3",
 	},
 
 	{
@@ -131,7 +131,7 @@ const events = [
 		day: 3,
 		start: 1155,
 		length: 75,
-		color: "#ffcccc",
+		color: "#FFFAE3",
 	},
 
 	{
@@ -140,7 +140,7 @@ const events = [
 		day: 3,
 		start: 950,
 		length: 90,
-		color: "#ffcccc",
+		color: "#FFFAE3",
 	},
 
 	{
@@ -149,7 +149,7 @@ const events = [
 		day: 4,
 		start: 650,
 		length: 90,
-		color: "#ffcccc",
+		color: "#FFFAE3",
 	},
 
 	{
@@ -158,7 +158,7 @@ const events = [
 		day: 4,
 		start: 750,
 		length: 90,
-		color: "#ffcccc",
+		color: "#FFFAE3",
 	},
 ];
 
