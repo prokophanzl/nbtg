@@ -1,7 +1,7 @@
 const settings = {
 	startHour: 9,
 	endHour: 22,
-	showWeekends: false,
+	showWeekends: true,
 	twentyFourHour: true,
 	aspectRatio: 16 / 9,
 	showTimes: false,
@@ -167,72 +167,6 @@ if (!settings.showWeekends) {
 	$(".weekend").css("display", "none");
 }
 
-for (let i = settings.startHour; i < settings.endHour; i++) {
-	$("#times-container").append("<div>" + i + ":00</div>");
-}
-
-for (let i = 0; i < events.length; i++) {
-	$("#events-" + events[i].day).append(
-		"<div class='event' id='event-" +
-			i +
-			"' style='background-color: " +
-			events[i].color +
-			";'><h5>" +
-			events[i].name +
-			"</h5>" +
-			events[i].note +
-			"</div>"
-	);
-	$("#event-" + i).css("left", ((events[i].start - settings.startHour * 60) / minutes) * 100 + "%");
-	$("#event-" + i).css("width", (events[i].length / minutes) * 100 + "%");
-}
-
-for (let i = 0; i < events.length; i++) {
-	$("#event-manager").append(
-		'<div class="event-item card" id="event-item-' +
-			i +
-			'">\
-			<h4>' +
-			events[i].name +
-			'</h4>\
-			<input type="text" name="event-name" class="event-name" placeholder="Event Name" value="' +
-			events[i].name +
-			'" />\
-			<input type="text" name="event-note" class="event-note" placeholder="Event Note" value="' +
-			events[i].note +
-			'" />\
-			<input type="color" name="event-color" class="event-color" value="' +
-			events[i].color +
-			'" />\
-			<input type="time" name="event-start" class="event-start" value=' +
-			("00" + Math.floor(events[i].start / 60)).slice(-2) + // pad with leading zeroes
-			":" +
-			("00" + (events[i].start % 60)).slice(-2) +
-			' />\
-			<input type="time" name="event-end" class="event-end" value="' +
-			("00" + Math.floor((events[i].start + events[i].length) / 60)).slice(-2) +
-			":" +
-			("00" + ((events[i].start + events[i].length) % 60)).slice(-2) +
-			'"/>\
-			<select name="event-day" class="event-day">\
-				<option value="0">Monday</option>\
-				<option value="1">Tuesday</option>\
-				<option value="2">Wednesday</option>\
-				<option value="3">Thursday</option>\
-				<option value="4">Friday</option>\
-				<option value="5">Saturday</option>\
-				<option value="6">Sunday</option>\
-			</select>\
-			<input type="button" name="duplicate-event" class="duplicate-event" value="Duplicate Event" />\
-			<input type="button" name="delete-event" class="delete-event" value="Delete Event" />\
-		</div>'
-	);
-	$("#event-item-" + i)
-		.children("select")
-		.val(events[i].day)
-		.change();
-}
-
 $("#export-btn").click(function () {
 	html2canvas(document.getElementById("timetable-wrapper"), { scale: 8 }).then(function (canvas) {
 		document.getElementById("output").appendChild(canvas);
@@ -293,3 +227,44 @@ $("#event-manager").on("click", ".duplicate-event", function () {
 		.val(events[events.length - 1].day)
 		.change();
 });
+
+$("#tt-show-weekends").click(function () {
+	// if weekends class has display: hidden, make display: default
+	if ($(".weekend").css("display") == "none") {
+		$(".weekend").css("display", "default");
+	} else {
+		$(".weekend").css("display", "none");
+	}
+});
+
+function generateTimetable() {
+	// clear times row
+	$("#times-container").empty();
+
+	// generate times row
+	for (let i = settings.startHour; i < settings.endHour; i++) {
+		$("#times-container").append("<div>" + i + ":00</div>");
+	}
+
+	// clear timetable
+	$(".events").empty();
+
+	// generate timetable
+	for (let i = 0; i < events.length; i++) {
+		$("#events-" + events[i].day).append(
+			"<div class='event' id='event-" +
+				i +
+				"' style='background-color: " +
+				events[i].color +
+				";'><h5>" +
+				events[i].name +
+				"</h5>" +
+				events[i].note +
+				"</div>"
+		);
+		$("#event-" + i).css("left", ((events[i].start - settings.startHour * 60) / minutes) * 100 + "%");
+		$("#event-" + i).css("width", (events[i].length / minutes) * 100 + "%");
+	}
+}
+
+generateTimetable();
