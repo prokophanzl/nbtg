@@ -363,8 +363,7 @@ function listEventManager() {
 
 function createEvent() {
 	pushEvent();
-	listEventTT(events.length - 1);
-	listEventEM(events.length - 1);
+	listEvent(events.length - 1);
 }
 
 function toggleWeekends() {
@@ -385,8 +384,7 @@ $("#clear-events").click(function () {
 	clearTimetable();
 	clearEventManager();
 	pushEvent();
-	listEventTT(0);
-	listEventEM(0);
+	listEvent(0);
 });
 
 // on title change in input field in event manager, update the events array and change title in timetable and event manager
