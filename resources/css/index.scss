@@ -191,7 +191,7 @@
 		grid-area: e-delete;
 	}
 	.delete-event,
-	.clear-events {
+	#clear-events {
 		background-color: var(--accent-lighter);
 		&:hover {
 			background-color: var(--accent);
