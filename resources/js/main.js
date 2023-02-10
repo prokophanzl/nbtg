@@ -275,6 +275,22 @@ function pushEvent(event) {
 	}
 }
 
+function listEventTT(i) {
+	$("#events-" + events[i].day).append(
+		"<div class='event' id='event-" +
+			i +
+			"' style='background-color: " +
+			events[i].color +
+			";'><h5>" +
+			events[i].name +
+			"</h5>" +
+			events[i].note +
+			"</div>"
+	);
+	$("#event-" + i).css("left", ((events[i].start - settings.startHour * 60) / minutes) * 100 + "%");
+	$("#event-" + i).css("width", (events[i].length / minutes) * 100 + "%");
+}
+
 function generateTimetable() {
 	// clear times row
 	$("#times-container").empty();
@@ -289,19 +305,7 @@ function generateTimetable() {
 
 	// generate timetable
 	for (let i = 0; i < events.length; i++) {
-		$("#events-" + events[i].day).append(
-			"<div class='event' id='event-" +
-				i +
-				"' style='background-color: " +
-				events[i].color +
-				";'><h5>" +
-				events[i].name +
-				"</h5>" +
-				events[i].note +
-				"</div>"
-		);
-		$("#event-" + i).css("left", ((events[i].start - settings.startHour * 60) / minutes) * 100 + "%");
-		$("#event-" + i).css("width", (events[i].length / minutes) * 100 + "%");
+		listEventTT(i);
 	}
 }
 
