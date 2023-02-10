@@ -250,6 +250,10 @@ function pushEvent(event) {
 	}
 }
 
+function clearEventTT(i) {
+	$("#event-" + i).remove();
+}
+
 function listEventTT(i) {
 	$("#events-" + events[i].day).append(
 		"<div class='event' id='event-" +
@@ -258,12 +262,17 @@ function listEventTT(i) {
 			events[i].color +
 			";'><h5>" +
 			events[i].name +
-			"</h5>" +
+			"</h5><span class='note'>" +
 			events[i].note +
-			"</div>"
+			"</span></div>"
 	);
 	$("#event-" + i).css("left", ((events[i].start - settings.startHour * 60) / minutes) * 100 + "%");
 	$("#event-" + i).css("width", (events[i].length / minutes) * 100 + "%");
+}
+
+function updateEventTT(i) {
+	clearEventTT(i);
+	listEventTT(i);
 }
 
 function listEventEM(i) {
@@ -351,6 +360,70 @@ function toggleWeekends() {
 
 $("#tt-show-weekends").click(function () {
 	toggleWeekends();
+});
+
+$("#add-event").click(function () {
+	createEvent();
+});
+
+// on title change in input field in event manager, update the events array and change title in timetable and event manager
+$(document).on("change", ".event-name", function () {
+	let id = $(this).parent().attr("id").split("-")[2];
+	events[id].name = $(this).val();
+	updateEventTT(id);
+	$("#event-item-" + id)
+		.children("h4")
+		.text($(this).val());
+});
+
+// same for note
+$(document).on("change", ".event-note", function () {
+	let id = $(this).parent().attr("id").split("-")[2];
+	events[id].note = $(this).val();
+	updateEventTT(id);
+});
+
+// same for color
+$(document).on("change", ".event-color", function () {
+	let id = $(this).parent().attr("id").split("-")[2];
+	events[id].color = $(this).val();
+	updateEventTT(id);
+});
+
+// same for start time
+$(document).on("change", ".event-start", function () {
+	let id = $(this).parent().attr("id").split("-")[2];
+	let start = $(this).val().split(":");
+	events[id].start = parseInt(start[0]) * 60 + parseInt(start[1]);
+	events[id].length =
+		parseInt(
+			$(".event-end", "#event-item-" + id)
+				.val()
+				.split(":")[0]
+		) *
+			60 +
+		parseInt(
+			$(".event-end", "#event-item-" + id)
+				.val()
+				.split(":")[1]
+		) -
+		events[id].start;
+	updateEventTT(id);
+});
+
+// same for end time
+$(document).on("change", ".event-end", function () {
+	let id = $(this).parent().attr("id").split("-")[2];
+	let end = $(this).val().split(":");
+	events[id].length = parseInt(end[0]) * 60 + parseInt(end[1]) - events[id].start;
+	updateEventTT(id);
+});
+
+// same for day
+$(document).on("change", ".event-day", function () {
+	let id = $(this).parent().attr("id").split("-")[2];
+	events[id].day = parseInt($(this).val());
+	updateEventTT(id);
 });
 
 $(document).ready(function () {
