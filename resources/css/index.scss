@@ -131,6 +131,11 @@
 		padding: 0 0.5rem;
 		height: 3rem;
 		background-color: #fff;
+		color: var(--main);
+		border-radius: 0px;
+
+		appearance: none;
+		-webkit-appearance: none;
 
 		&:focus {
 			background-color: var(--accent-lightest);
@@ -142,6 +147,16 @@
 			background-color: var(--accent-lightest);
 		}
 	}
+
+	// .select-wrapper::after {
+	// 	content: "▼";
+	// 	width: 100%;
+	// 	height: 4rem;
+	// 	outline: 2px solid lime;
+	// 	background-color: red;
+	// 	z-index: 255;
+	// }
+
 	div.card {
 		background-color: var(--accent-2-light);
 		border: 0.1rem solid var(--main);
