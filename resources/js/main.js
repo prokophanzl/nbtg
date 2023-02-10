@@ -305,6 +305,54 @@ function generateTimetable() {
 	}
 }
 
+function listEventManager() {
+	for (let i = 0; i < events.length; i++) {
+		$("#event-manager").append(
+			'<div class="event-item card" id="event-item-' +
+				i +
+				'">\
+				<h4>' +
+				events[i].name +
+				'</h4>\
+				<input type="text" name="event-name" class="event-name" placeholder="Event Name" value="' +
+				events[i].name +
+				'" />\
+				<input type="text" name="event-note" class="event-note" placeholder="Event Note" value="' +
+				events[i].note +
+				'" />\
+				<input type="color" name="event-color" class="event-color" value="' +
+				events[i].color +
+				'" />\
+				<input type="time" name="event-start" class="event-start" value=' +
+				("00" + Math.floor(events[i].start / 60)).slice(-2) + // pad with leading zeroes
+				":" +
+				("00" + (events[i].start % 60)).slice(-2) +
+				' />\
+				<input type="time" name="event-end" class="event-end" value="' +
+				("00" + Math.floor((events[i].start + events[i].length) / 60)).slice(-2) +
+				":" +
+				("00" + ((events[i].start + events[i].length) % 60)).slice(-2) +
+				'"/>\
+				<select name="event-day" class="event-day">\
+					<option value="0">Monday</option>\
+					<option value="1">Tuesday</option>\
+					<option value="2">Wednesday</option>\
+					<option value="3">Thursday</option>\
+					<option value="4">Friday</option>\
+					<option value="5">Saturday</option>\
+					<option value="6">Sunday</option>\
+				</select>\
+				<input type="button" name="duplicate-event" class="duplicate-event" value="Duplicate Event" />\
+				<input type="button" name="delete-event" class="delete-event" value="Delete Event" />\
+			</div>'
+		);
+		$("#event-item-" + i)
+			.children("select")
+			.val(events[i].day)
+			.change();
+	}
+}
+
 function toggleWeekends() {
 	$(".weekend").toggle();
 }
@@ -319,4 +367,5 @@ $(document).ready(function () {
 		toggleWeekends;
 	}
 	generateTimetable();
+	listEventManager();
 });
