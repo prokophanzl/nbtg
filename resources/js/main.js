@@ -323,6 +323,10 @@ function listEventEM(i) {
 		.change();
 }
 
+function clearTimetable() {
+	$(".events").empty();
+}
+
 function generateTimetable() {
 	// clear times row
 	$("#times-container").empty();
@@ -332,8 +336,7 @@ function generateTimetable() {
 		$("#times-container").append("<div>" + i + ":00</div>");
 	}
 
-	// clear timetable
-	$(".events").empty();
+	clearTimetable();
 
 	// generate timetable
 	for (let i = 0; i < events.length; i++) {
