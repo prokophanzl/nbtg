@@ -315,7 +315,7 @@ function createEvent() {
 }
 
 function toggleWeekends() {
-	setting.weekends = !setting.weekends;
+	settings.weekends = !settings.weekends;
 	$(".weekend").toggle();
 }
 
