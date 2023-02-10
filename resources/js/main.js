@@ -9,7 +9,7 @@ const settings = {
 
 const minutes = 60 * (settings.endHour - settings.startHour);
 
-const events = [
+let events = [
 	{
 		name: "Gender a jazyk v&nbsp;minulosti a současnosti",
 		note: "1.10",
@@ -344,6 +344,10 @@ function generateTimetable() {
 	}
 }
 
+function clearEventManager() {
+	$("#event-manager").empty();
+}
+
 function listEventManager() {
 	for (let i = 0; i < events.length; i++) {
 		listEventEM(i);
@@ -367,6 +371,13 @@ $("#tt-show-weekends").click(function () {
 
 $("#add-event").click(function () {
 	createEvent();
+});
+
+$("#clear-events").click(function () {
+	events = [];
+	clearTimetable();
+	clearEventManager();
+	pushEvent();
 });
 
 // on title change in input field in event manager, update the events array and change title in timetable and event manager
