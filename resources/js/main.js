@@ -277,6 +277,10 @@ function updateEventTT(i) {
 	listEventTT(i);
 }
 
+function clearEventEM(i) {
+	$("#event-item-" + i).remove();
+}
+
 function listEventEM(i) {
 	$("#event-manager").append(
 		'<div class="event-item card" id="event-item-' +
@@ -330,6 +334,11 @@ function listEvent(i) {
 	listEventEM(i);
 }
 
+function clearEvent(i) {
+	clearEventTT(i);
+	clearEventEM(i);
+}
+
 function clearTimetable() {
 	$(".events").empty();
 }
@@ -370,6 +379,12 @@ function toggleWeekends() {
 	setting.weekends = !setting.weekends;
 	$(".weekend").toggle();
 }
+
+$("#event-manager").on("click", ".delete-event", function () {
+	let id = $(this).parent().attr("id").split("-")[2];
+	events.splice(id, 1);
+	clearEvent(id);
+});
 
 $("#tt-show-weekends").click(function () {
 	toggleWeekends();
