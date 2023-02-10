@@ -236,7 +236,9 @@ function pushEvent(event) {
 			day: 0,
 			start: 720,
 			length: 120,
-			color: events[events.length - 1].color,
+
+			// if no events, use default color, otherwise use last event's color
+			color: events.length > 0 ? events[events.length - 1].color : "#FFFAE3",
 		});
 	} else {
 		events.push({
@@ -323,6 +325,11 @@ function listEventEM(i) {
 		.change();
 }
 
+function listEvent(i) {
+	listEventTT(i);
+	listEventEM(i);
+}
+
 function clearTimetable() {
 	$(".events").empty();
 }
@@ -378,6 +385,8 @@ $("#clear-events").click(function () {
 	clearTimetable();
 	clearEventManager();
 	pushEvent();
+	listEventTT(0);
+	listEventEM(0);
 });
 
 // on title change in input field in event manager, update the events array and change title in timetable and event manager
