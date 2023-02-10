@@ -238,3 +238,58 @@ $("#export-btn").click(function () {
 		document.getElementById("output").appendChild(canvas);
 	});
 });
+
+$("#event-manager").on("click", ".duplicate-event", function () {
+	let id = $(this).parent().attr("id").split("-")[2];
+	events.push({
+		name: events[id].name,
+		note: events[id].note,
+		day: events[id].day,
+		start: events[id].start,
+		length: events[id].length,
+		color: events[id].color,
+	});
+	$("#event-manager").append(
+		'<div class="event-item card" id="event-item-' +
+			(events.length - 1) +
+			'">\
+			<h4>' +
+			events[events.length - 1].name +
+			'</h4>\
+			<input type="text" name="event-name" class="event-name" placeholder="Event Name" value="' +
+			events[events.length - 1].name +
+			'" />\
+			<input type="text" name="event-note" class="event-note" placeholder="Event Note" value="' +
+			events[events.length - 1].note +
+			'" />\
+			<input type="color" name="event-color" class="event-color" value="' +
+			events[events.length - 1].color +
+			'" />\
+			<input type="time" name="event-start" class="event-start" value=' +
+			("00" + Math.floor(events[events.length - 1].start / 60)).slice(-2) + // pad with leading zeroes
+			":" +
+			("00" + (events[events.length - 1].start % 60)).slice(-2) +
+			' />\
+			<input type="time" name="event-end" class="event-end" value="' +
+			("00" + Math.floor((events[events.length - 1].start + events[events.length - 1].length) / 60)).slice(-2) +
+			":" +
+			("00" + ((events[events.length - 1].start + events[events.length - 1].length) % 60)).slice(-2) +
+			'"/>\
+			<select name="event-day" class="event-day">\
+				<option value="0">Monday</option>\
+				<option value="1">Tuesday</option>\
+				<option value="2">Wednesday</option>\
+				<option value="3">Thursday</option>\
+				<option value="4">Friday</option>\
+				<option value="5">Saturday</option>\
+				<option value="6">Sunday</option>\
+			</select>\
+			<input type="button" name="duplicate-event" class="duplicate-event" value="Duplicate Event" />\
+			<input type="button" name="delete-event" class="delete-event" value="Delete Event" />\
+		</div>'
+	);
+	$("#event-item-" + (events.length - 1))
+		.children("select")
+		.val(events[events.length - 1].day)
+		.change();
+});
