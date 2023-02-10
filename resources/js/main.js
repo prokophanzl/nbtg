@@ -228,6 +228,31 @@ $("#event-manager").on("click", ".duplicate-event", function () {
 		.change();
 });
 
+// function createEvent() {
+// 	let name = $("#event-name").val();
+// 	let note = $("#event-note").val();
+// 	let day = $("#event-day").val();
+// 	let start = $("#event-start").val();
+// 	let end = $("#event-end").val();
+// 	let color = $("#event-color").val();
+
+// 	let startHour = parseInt(start.split(":")[0]);
+// 	let startMinute = parseInt(start.split(":")[1]);
+// 	let endHour = parseInt(end.split(":")[0]);
+// 	let endMinute = parseInt(end.split(":")[1]);
+
+// 	let length = (endHour - startHour) * 60 + (endMinute - startMinute);
+
+// 	events.push({
+// 		name: name,
+// 		note: note,
+// 		day: day,
+// 		start: startHour * 60 + startMinute,
+// 		length: length,
+// 		color: color,
+// 	});
+// }
+
 function pushEvent(event) {
 	if (!event) {
 		events.push({
