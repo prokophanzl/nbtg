@@ -1,7 +1,7 @@
 const settings = {
 	startHour: 9,
 	endHour: 22,
-	showWeekends: true,
+	showWeekends: false,
 	twentyFourHour: true,
 	aspectRatio: 16 / 9,
 	showTimes: false,
@@ -267,4 +267,9 @@ function generateTimetable() {
 	}
 }
 
-generateTimetable();
+$(document).ready(function () {
+	if (!settings.showWeekends) {
+		toggleWeekends;
+	}
+	generateTimetable();
+});
