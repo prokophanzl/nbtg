@@ -228,6 +228,26 @@ $("#event-manager").on("click", ".duplicate-event", function () {
 		.change();
 });
 
+function pushEvent(event) {
+	if (!event) {
+		events.push({
+			name: "New Event",
+			note: "Event Note",
+			day: 0,
+			start: 720,
+			length: 120,
+			color: events[events.length - 1].color,
+		});
+	} else {
+		events.push({
+			name: event.name,
+			note: event.note,
+			day: event.day,
+			start: event.start,
+			length: event.length,
+			color: event.color,
+		});
+	}
 }
 
 function generateTimetable() {
