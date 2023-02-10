@@ -228,8 +228,6 @@ $("#event-manager").on("click", ".duplicate-event", function () {
 		.change();
 });
 
-function toggleWeekends() {
-	$(".weekend").toggle();
 }
 
 function generateTimetable() {
@@ -260,6 +258,10 @@ function generateTimetable() {
 		$("#event-" + i).css("left", ((events[i].start - settings.startHour * 60) / minutes) * 100 + "%");
 		$("#event-" + i).css("width", (events[i].length / minutes) * 100 + "%");
 	}
+}
+
+function toggleWeekends() {
+	$(".weekend").toggle();
 }
 
 $("#tt-show-weekends").click(function () {
