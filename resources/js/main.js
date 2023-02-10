@@ -364,11 +364,11 @@ function listEventManager() {
 }
 
 function toggleWeekends() {
+	setting.weekends = !setting.weekends;
 	$(".weekend").toggle();
 }
 
 $("#tt-show-weekends").click(function () {
-	settings.showWeekends = !settings.showWeekends;
 	toggleWeekends();
 });
 
