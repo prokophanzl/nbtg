@@ -228,14 +228,9 @@ $("#event-manager").on("click", ".duplicate-event", function () {
 		.change();
 });
 
-$("#tt-show-weekends").click(function () {
-	// if weekends class has display: hidden, make display: default
-	if ($(".weekend").css("display") == "none") {
-		$(".weekend").css("display", "default");
-	} else {
-		$(".weekend").css("display", "none");
-	}
-});
+function toggleWeekends() {
+	$(".weekend").toggle();
+}
 
 function generateTimetable() {
 	// clear times row
@@ -266,6 +261,11 @@ function generateTimetable() {
 		$("#event-" + i).css("width", (events[i].length / minutes) * 100 + "%");
 	}
 }
+
+$("#tt-show-weekends").click(function () {
+	settings.showWeekends = !settings.showWeekends;
+	toggleWeekends();
+});
 
 $(document).ready(function () {
 	if (!settings.showWeekends) {
