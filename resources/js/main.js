@@ -217,7 +217,7 @@ function listEventTT(i) {
 function updateEventTT(i) {
 	clearEventTT(i);
 	listEventTT(i);
-	checkBorders();
+	checkRightBorders();
 }
 
 function clearEventEM(i) {
@@ -304,7 +304,7 @@ function checkLeftBorder(i) {
 	}
 }
 
-function checkBorders() {
+function checkRightBorders() {
 	// wait for events to be added to the DOM
 	setTimeout(function () {
 		// check if an event ends at the same time as another event starts or at the end of the day. if it does, remove its right border
@@ -336,7 +336,7 @@ function generateTimetable() {
 		listEventTT(i);
 	}
 
-	checkBorders();
+	checkRightBorders();
 }
 
 function clearEventManager() {
