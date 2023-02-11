@@ -303,7 +303,10 @@ function getTime(time) {
 	if (settings.twentyFourHour) {
 		return hour + ":" + (minute == 0 ? "00" : minute);
 	} else {
-		return ((hour + 11) % 12) + 1 + ":" + (minute == 0 ? "00" : minute) + " " + ampm[Math.floor(hour / 12)];
+		// don't show ":00"
+		return (
+			(hour % 12 == 0 ? 12 : hour % 12) + (minute == 0 ? "" : ":" + (minute < 10 ? "0" + minute : minute)) + " " + ampm[Math.floor(hour / 12)]
+		);
 	}
 }
 
