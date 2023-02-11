@@ -206,14 +206,10 @@ function listEventTT(i) {
 			"</span>\
 			<span class='event-time'>" +
 			// event start time
-			Math.floor(events[i].start / 60) +
-			":" +
-			(events[i].start % 60 == 0 ? "00" : events[i].start % 60) +
+			getTime(events[i].start) +
 			" - " +
 			// event end time
-			Math.floor((events[i].start + events[i].length) / 60) +
-			":" +
-			((events[i].start + events[i].length) % 60 == 0 ? "00" : (events[i].start + events[i].length) % 60) +
+			getTime(events[i].start + events[i].length) +
 			"</span></div>"
 	);
 
@@ -296,6 +292,19 @@ function clearEvent(i) {
 
 function clearTimes() {
 	$("#times-container").empty();
+}
+
+function getTime(time) {
+	let ampm = ["a.m.", "p.m."];
+	let hour = Math.floor(time / 60);
+	let minute = time % 60;
+
+	// return time adjusted for 12/24 hour format
+	if (settings.twentyFourHour) {
+		return hour + ":" + (minute == 0 ? "00" : minute);
+	} else {
+		return ((hour + 11) % 12) + 1 + ":" + (minute == 0 ? "00" : minute) + " " + ampm[Math.floor(hour / 12)];
+	}
 }
 
 function listTimes() {
