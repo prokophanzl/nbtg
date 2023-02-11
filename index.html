@@ -106,43 +106,56 @@
 			</div>
 			<h1>Settings</h1>
 			<div class="settings-container">
-				<label>
-					<input type="number" name="tt-start" id="tt-start" placeholder="8" min="1" max="12" />
-					<select name="tt-start-am-pm" id="tt-start-am-pm">
-						<option value="0" selected>a.m.</option>
-						<option value="1">p.m.</option>
-					</select>
-					Start Time
+				<label class="label-input">
+					<span class="label-span label-input-span">Start Time</span>
+					<div class="inputs-line">
+						<div class="times-wrapper">
+							<input type="number" name="tt-start" id="tt-start" placeholder="8" min="1" max="12" />
+							<select name="tt-start-am-pm" id="tt-start-am-pm">
+								<option value="0" selected>a.m.</option>
+								<option value="1">p.m.</option>
+							</select>
+						</div>
+					</div>
 				</label>
-				<label>
-					<input type="number" name="tt-end" id="tt-end" placeholder="8" min="1" max="12" />
-					<select name="tt-end-am-pm" id="tt-end-am-pm">
-						<option value="0">a.m.</option>
-						<option value="1" selected>p.m.</option>
-					</select>
-					End Time
+				<label class="label-input">
+					<span class="label-span label-input-span">End Time</span>
+					<div class="inputs-line">
+						<div class="times-wrapper">
+							<input type="number" name="tt-end" id="tt-end" placeholder="8" min="1" max="12" />
+							<select name="tt-end-am-pm" id="tt-end-am-pm">
+								<option value="0">a.m.</option>
+								<option value="1" selected>p.m.</option>
+							</select>
+						</div>
+					</div>
+				</label>
+				<label class="label-input">
+					<span class="label-span label-input-span">Time Format</span>
+					<div class="inputs-line">
+						<select name="tt-time-format" id="tt-time-format">
+							<option value="0">12h</option>
+							<option value="1" selected>24h</option>
+						</select>
+					</div>
+				</label>
+				<label class="label-input">
+					<span class="label-span label-input-span">Aspect Ratio</span>
+					<div class="inputs-line aspect-wrapper">
+						<input type="number" name="tt-aspect-1" id="tt-aspect-1" />
+						<span class="aspect-colon">:</span>
+						<input type="number" name="tt-aspect-2" id="tt-aspect-2" />
+					</div>
 				</label>
 				<label class="label-with-checkmark">
 					<input type="checkbox" name="tt-show-weekends" id="tt-show-weekends" />
 					<span class="checkmark"></span>
-					Show Weekends
-				</label>
-				<label>
-					<select name="tt-time-format" id="tt-time-format">
-						<option value="0">12h</option>
-						<option value="1" selected>24h</option>
-					</select>
-					Time Format
-				</label>
-				<label>
-					<input type="number" name="tt-aspect-1" id="tt-aspect-1" /> :
-					<input type="number" name="tt-aspect-2" id="tt-aspect-2" />
-					Aspect Ratio
+					<span class="label-span">Show Weekends</span>
 				</label>
 				<label class="label-with-checkmark">
 					<input type="checkbox" name="tt-show-event-times" id="tt-show-event-times" />
 					<span class="checkmark"></span>
-					Show Event Times
+					<span class="label-span">Show Event Times</span>
 				</label>
 			</div>
 		</section>

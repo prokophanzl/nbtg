@@ -162,8 +162,8 @@ label {
 
 .label-with-checkmark {
 	padding-left: 2.5rem;
-	height: 2rem;
-	line-height: 2rem;
+	height: 3rem;
+	line-height: 3rem;
 	position: relative;
 
 	input[type="checkbox"] {
@@ -184,7 +184,7 @@ label {
 
 	.checkmark {
 		position: absolute;
-		top: 0;
+		top: 0.5rem;
 		left: 0;
 		height: 2rem;
 		width: 2rem;
@@ -203,8 +203,8 @@ label {
 	}
 
 	.checkmark:after {
-		left: 0.65rem;
-		top: 0.32rem;
+		left: 0.67rem;
+		top: 0.33rem;
 		width: 0.5rem;
 		height: 1rem;
 		border: solid var(--light);
@@ -327,4 +327,65 @@ label {
 .settings-container {
 	display: grid;
 	gap: 0.5rem;
+
+	.label-input {
+		display: grid;
+		gap: 0.5rem;
+		grid-auto-flow: column;
+		grid-template-columns: 8.5rem 8.5rem;
+	}
+
+	.label-input-span {
+		display: block;
+		min-height: 3rem;
+		line-height: 3rem;
+		grid-column: 1 / 2;
+		grid-column: 1 / 1;
+		font-weight: bold;
+	}
+
+	.inputs-line {
+		grid-column: 2 / 2;
+	}
+
+	#tt-start,
+	#tt-end,
+	#tt-start-am-pm,
+	#tt-end-am-pm {
+		width: 4rem;
+	}
+
+	#tt-time-format {
+		width: 100%;
+	}
+
+	.times-wrapper {
+		display: grid;
+		gap: 0.5rem;
+		grid-auto-flow: column;
+	}
+
+	.aspect-wrapper {
+		display: grid;
+		grid-auto-flow: column;
+		width: 8.5rem;
+		grid-template-columns: 3.5rem auto 3.5rem;
+		gap: 0.5rem;
+
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+
+		input[type="number"] {
+			appearance: textfield;
+			-webkit-appearance: textfield;
+		}
+
+		.aspect-colon {
+			display: grid;
+			place-items: center;
+		}
+	}
 }
