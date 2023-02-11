@@ -309,12 +309,7 @@ function getTime(time) {
 
 function listTimes() {
 	for (let i = settings.startHour; i < settings.endHour; i++) {
-		if (settings.twentyFourHour) {
-			$("#times-container").append("<div>" + i + ":00</div>");
-		} else {
-			let ampm = ["a.m.", "p.m."];
-			$("#times-container").append("<div>" + (((i + 11) % 12) + 1) + " " + ampm[Math.floor(i / 12)] + "</div>");
-		}
+		$("#times-container").append("<div>" + getTime(i * 60) + "</div>");
 	}
 }
 
