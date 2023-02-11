@@ -154,8 +154,63 @@ select {
 input[type="button"],
 input[type="color"],
 input[type="time"],
-select {
+input[type="checkbox"],
+select,
+label {
 	cursor: pointer;
+}
+
+.label-with-checkmark {
+	padding-left: 2.5rem;
+	height: 2rem;
+	line-height: 2rem;
+	position: relative;
+
+	input[type="checkbox"] {
+		position: absolute;
+		opacity: 0;
+		cursor: pointer;
+		height: 0;
+		width: 0;
+	}
+
+	&:hover input[type="checkbox"] ~ .checkmark {
+		background-color: var(--accent-light);
+	}
+
+	input[type="checkbox"]:checked ~ .checkmark {
+		background-color: var(--accent);
+	}
+
+	.checkmark {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 2rem;
+		width: 2rem;
+		background-color: #fff;
+		border: 0.1rem solid var(--main);
+	}
+
+	.checkmark:after {
+		content: "";
+		position: absolute;
+		display: none;
+	}
+
+	input[type="checkbox"]:checked ~ .checkmark:after {
+		display: block;
+	}
+
+	.checkmark:after {
+		left: 0.65rem;
+		top: 0.32rem;
+		width: 0.5rem;
+		height: 1rem;
+		border: solid var(--light);
+		border-width: 0 0.2rem 0.2rem 0;
+		transform: rotate(45deg);
+	}
 }
 
 .event-manager-wrapper {
@@ -267,4 +322,9 @@ select {
 		margin-top: 0.5rem;
 		grid-template-columns: 1fr 1fr;
 	}
+}
+
+.settings-container {
+	display: grid;
+	gap: 0.5rem;
 }
