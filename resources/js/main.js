@@ -211,6 +211,7 @@ function listEventTT(i) {
 	$("#event-" + i).css("left", ((events[i].start - settings.startHour * 60) / minutes) * 100 + "%");
 	$("#event-" + i).css("width", (events[i].length / minutes) * 100 + "%");
 
+	cutOffEvent(i);
 	checkLeftBorder(i);
 }
 
@@ -297,11 +298,26 @@ function listTimes() {
 	}
 }
 
+function cutOffEvent(i) {
+	// wait for event to be added to the DOM
+	setTimeout(function () {
+		// if event starts before the day, place it at the start of the day and cut it off
+		if (events[i].start < settings.startHour * 60) {
+			$("#event-" + i).css("left", "0");
+			$("#event-" + i).css("width", ((events[i].start + events[i].length - settings.startHour * 60) / events[i].length) * 100 + "%");
+		}
+		// if event is longer than the day, CSS will cut it off
+	}, 0);
+}
+
 function checkLeftBorder(i) {
-	// if it starts at the beginning of the day, remove its left border
-	if (events[i].start == settings.startHour * 60) {
-		$("#event-" + i).css("border-left", "none");
-	}
+	// wait for event to be added to the DOM
+	setTimeout(function () {
+		// if event starts at the beginning of the day, remove its left border
+		if (events[i].start <= settings.startHour * 60) {
+			$("#event-" + i).css("border-left", "none");
+		}
+	}, 0);
 }
 
 function checkRightBorders() {
