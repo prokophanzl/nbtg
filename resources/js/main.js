@@ -555,7 +555,6 @@ $("#tt-show-weekends").click(function () {
 
 $("#tt-time-format").change(function () {
 	settings.twentyFourHour = parseInt($(this).val());
-	alert(settings.twentyFourHour);
 	updateTimes();
 });
 
