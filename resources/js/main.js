@@ -215,6 +215,7 @@ function listEventTT(i) {
 function updateEventTT(i) {
 	clearEventTT(i);
 	listEventTT(i);
+	checkBorders();
 }
 
 function clearEventEM(i) {
@@ -294,6 +295,23 @@ function listTimes() {
 	}
 }
 
+function checkBorders() {
+	// wait for events to be added to the DOM
+	setTimeout(function () {
+		// check if an event ends at the same time as another event starts or at the end of the day. if it does, remove its right border
+		for (let i = 0; i < events.length; i++) {
+			for (let j = 0; j < events.length; j++) {
+				if (
+					((events[i].day == events[j].day) & (events[i].start + events[i].length == events[j].start)) |
+					(events[i].start + events[i].length == settings.endHour * 60)
+				) {
+					$("#event-" + i).css("border-right", "none");
+				}
+			}
+		}
+	}, 0);
+}
+
 function clearTimetable() {
 	$(".events").empty();
 }
@@ -308,6 +326,8 @@ function generateTimetable() {
 	for (let i = 0; i < events.length; i++) {
 		listEventTT(i);
 	}
+
+	checkBorders();
 }
 
 function clearEventManager() {
