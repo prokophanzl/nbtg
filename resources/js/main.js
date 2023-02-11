@@ -4,7 +4,7 @@ const settings = {
 	showWeekends: false,
 	twentyFourHour: false,
 	aspectRatio: 16 / 9,
-	showEventTimes: false,
+	showEventTimes: true,
 };
 
 let events = [
