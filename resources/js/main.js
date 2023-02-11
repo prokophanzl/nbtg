@@ -2,12 +2,10 @@ const settings = {
 	startHour: 9,
 	endHour: 22,
 	showWeekends: false,
-	twentyFourHour: true,
+	twentyFourHour: false,
 	aspectRatio: 16 / 9,
 	showTimes: false,
 };
-
-const minutes = 60 * (settings.endHour - settings.startHour);
 
 let events = [
 	{
@@ -207,6 +205,9 @@ function listEventTT(i) {
 			events[i].note +
 			"</span></div>"
 	);
+
+	let minutes = 60 * (settings.endHour - settings.startHour);
+
 	$("#event-" + i).css("left", ((events[i].start - settings.startHour * 60) / minutes) * 100 + "%");
 	$("#event-" + i).css("width", (events[i].length / minutes) * 100 + "%");
 }
@@ -278,18 +279,28 @@ function clearEvent(i) {
 	clearEventEM(i);
 }
 
+function clearTimes() {
+	$("#times-container").empty();
+}
+
+function listTimes() {
+	for (let i = settings.startHour; i < settings.endHour; i++) {
+		if (settings.twentyFourHour) {
+			$("#times-container").append("<div>" + i + ":00</div>");
+		} else {
+			let ampm = ["a.m.", "p.m."];
+			$("#times-container").append("<div>" + (((i + 11) % 12) + 1) + " " + ampm[Math.floor(i / 12)] + "</div>");
+		}
+	}
+}
+
 function clearTimetable() {
 	$(".events").empty();
 }
 
 function generateTimetable() {
-	// clear times row
-	$("#times-container").empty();
-
-	// generate times row
-	for (let i = settings.startHour; i < settings.endHour; i++) {
-		$("#times-container").append("<div>" + i + ":00</div>");
-	}
+	clearTimes();
+	listTimes();
 
 	clearTimetable();
 
@@ -386,10 +397,6 @@ $("#event-manager").on("click", ".delete-event", function () {
 	clearEvent(id);
 });
 
-$("#tt-show-weekends").click(function () {
-	toggleWeekends();
-});
-
 $("#add-event").click(function () {
 	createEvent();
 });
@@ -462,10 +469,43 @@ $(document).on("change", ".event-day", function () {
 	updateEventTT(id);
 });
 
+function applySettings() {
+	$("#tt-start").val(settings.startHour % 12);
+	$("#tt-end").val(settings.endHour % 12);
+
+	$("#tt-start-am-pm").val(Math.floor(settings.startHour / 12));
+	$("#tt-end-am-pm").val(Math.floor(settings.endHour / 12));
+}
+
+$("#tt-start").change(function () {
+	settings.startHour = parseInt($(this).val()) + parseInt($("#tt-start-am-pm").val()) * 12;
+	generateTimetable();
+});
+
+$("#tt-start-am-pm").change(function () {
+	settings.startHour = parseInt($("#tt-start").val()) + parseInt($(this).val()) * 12;
+	generateTimetable();
+});
+
+$("#tt-end").change(function () {
+	settings.endHour = parseInt($(this).val()) + parseInt($("#tt-end-am-pm").val()) * 12;
+	generateTimetable();
+});
+
+$("#tt-end-am-pm").change(function () {
+	settings.endHour = parseInt($("#tt-end").val()) + parseInt($(this).val()) * 12;
+	generateTimetable();
+});
+
+$("#tt-show-weekends").click(function () {
+	toggleWeekends();
+});
+
 $(document).ready(function () {
 	if (!settings.showWeekends) {
 		toggleWeekends;
 	}
 	generateTimetable();
 	listEventManager();
+	applySettings();
 });
