@@ -4,7 +4,7 @@ const settings = {
 	showWeekends: false,
 	twentyFourHour: false,
 	aspectRatio: 16 / 9,
-	showTimes: false,
+	showEventTimes: false,
 };
 
 let events = [
@@ -203,6 +203,17 @@ function listEventTT(i) {
 			events[i].name +
 			"</h5><span class='note'>" +
 			events[i].note +
+			"</span>\
+			<span class='event-time'>" +
+			// event start time
+			Math.floor(events[i].start / 60) +
+			":" +
+			(events[i].start % 60 == 0 ? "00" : events[i].start % 60) +
+			" - " +
+			// event end time
+			Math.floor((events[i].start + events[i].length) / 60) +
+			":" +
+			((events[i].start + events[i].length) % 60 == 0 ? "00" : (events[i].start + events[i].length) % 60) +
 			"</span></div>"
 	);
 
@@ -379,6 +390,11 @@ function toggleWeekends() {
 	$(".weekend").toggle();
 }
 
+function toggleEventTimes() {
+	settings.eventTimes = !settings.eventTimes;
+	$(".event-time").toggle();
+}
+
 $("#export-btn").click(function () {
 	html2canvas(document.getElementById("timetable-wrapper"), { scale: 8 }).then(function (canvas) {
 		document.getElementById("output").appendChild(canvas);
@@ -527,6 +543,7 @@ function applySettings() {
 
 	$("#tt-show-weekends").prop("checked", settings.showWeekends);
 	$("#tt-time-format").val(settings.twentyFourHour ? 1 : 0);
+	$("#tt-show-event-times").prop("checked", settings.showEventTimes);
 }
 
 $("#tt-start").change(function () {
@@ -558,11 +575,24 @@ $("#tt-time-format").change(function () {
 	updateTimes();
 });
 
+$("#tt-show-event-times").change(function () {
+	toggleEventTimes();
+});
+
 $(document).ready(function () {
 	if (!settings.showWeekends) {
-		toggleWeekends;
+		$(".weekend").hide();
 	}
+
 	generateTimetable();
+
+	// wait for the timetable to be generated before hiding event times
+	setTimeout(function () {
+		if (!settings.showEventTimes) {
+			$(".event-time").hide();
+		}
+	}, 0);
+
 	listEventManager();
 	applySettings();
 });
