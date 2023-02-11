@@ -210,6 +210,8 @@ function listEventTT(i) {
 
 	$("#event-" + i).css("left", ((events[i].start - settings.startHour * 60) / minutes) * 100 + "%");
 	$("#event-" + i).css("width", (events[i].length / minutes) * 100 + "%");
+
+	checkLeftBorder(i);
 }
 
 function updateEventTT(i) {
@@ -292,6 +294,13 @@ function listTimes() {
 			let ampm = ["a.m.", "p.m."];
 			$("#times-container").append("<div>" + (((i + 11) % 12) + 1) + " " + ampm[Math.floor(i / 12)] + "</div>");
 		}
+	}
+}
+
+function checkLeftBorder(i) {
+	// if it starts at the beginning of the day, remove its left border
+	if (events[i].start == settings.startHour * 60) {
+		$("#event-" + i).css("border-left", "none");
 	}
 }
 
