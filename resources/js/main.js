@@ -549,7 +549,7 @@ $("#tt-end-am-pm").change(function () {
 	generateTimetable();
 });
 
-$("#tt-show-weekends").click(function () {
+$("#tt-show-weekends").change(function () {
 	toggleWeekends();
 });
 
