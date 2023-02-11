@@ -121,33 +121,43 @@
 	}
 }
 
-.event-manager-wrapper {
-	input,
-	select {
-		font-family: inherit;
-		font-size: 1rem;
-		border: 0.1rem solid var(--main);
-		width: 100%;
-		padding: 0 0.5rem;
-		height: 3rem;
-		background-color: #fff;
-		color: var(--main);
-		border-radius: 0px;
+input[type="text"],
+input[type="color"],
+input[type="time"],
+input[type="number"],
+input[type="button"],
+select {
+	font-family: inherit;
+	font-size: 1rem;
+	border: 0.1rem solid var(--main);
+	padding: 0 0.5rem;
+	height: 3rem;
+	background-color: #fff;
+	color: var(--main);
+	border-radius: 0px;
 
-		appearance: none;
-		-webkit-appearance: none;
+	appearance: none;
+	-webkit-appearance: none;
 
-		&:focus {
-			background-color: var(--accent-lightest);
-			outline: 0.1rem solid var(--accent-lighter);
-			outline-offset: 0.1rem;
-		}
-
-		&:hover {
-			background-color: var(--accent-lightest);
-		}
+	&:focus {
+		background-color: var(--accent-lightest);
+		outline: 0.1rem solid var(--accent-lighter);
+		outline-offset: 0.1rem;
 	}
 
+	&:hover {
+		background-color: var(--accent-lightest);
+	}
+}
+
+input[type="button"],
+input[type="color"],
+input[type="time"],
+select {
+	cursor: pointer;
+}
+
+.event-manager-wrapper {
 	// .select-wrapper::after {
 	// 	content: "▼";
 	// 	width: 100%;
@@ -156,6 +166,11 @@
 	// 	background-color: red;
 	// 	z-index: 255;
 	// }
+
+	input,
+	select {
+		width: 100%;
+	}
 
 	div.card {
 		background-color: var(--accent-2-light);
@@ -167,44 +182,48 @@
 			grid-area: e-heading;
 		}
 	}
+
 	input[type="text"] {
 		&::placeholder {
 			color: inherit;
 			opacity: 0.5;
 		}
 	}
+
 	input[type="color"] {
 		padding: 0.25rem;
 		width: 100%;
 	}
-	input[type="button"],
-	input[type="color"],
-	input[type="time"],
-	select {
-		cursor: pointer;
-	}
+
 	.event-name {
 		grid-area: e-name;
 	}
+
 	.event-note {
 		grid-area: e-note;
 	}
+
 	.event-color {
 		grid-area: e-color;
 		min-width: 3rem;
 	}
+
 	.event-start {
 		grid-area: e-start;
 	}
+
 	.event-end {
 		grid-area: e-end;
 	}
+
 	.event-day {
 		grid-area: e-day;
 	}
+
 	.delete-event {
 		grid-area: e-delete;
 	}
+
 	.delete-event,
 	#clear-events {
 		background-color: var(--accent-lighter);
@@ -212,12 +231,15 @@
 			background-color: var(--accent);
 		}
 	}
+
 	.duplicate-event {
 		grid-area: e-duplicate;
 	}
+
 	#event-manager {
 		display: grid;
 		gap: 0.5rem;
+
 		div.card {
 			grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 			grid-template-areas:
@@ -226,6 +248,7 @@
 				"e-start e-start e-start e-end e-end e-end e-day e-day e-day e-day e-color e-color"
 				"e-duplicate e-duplicate e-duplicate e-duplicate e-duplicate e-duplicate e-delete e-delete e-delete e-delete e-delete e-delete";
 		}
+
 		@media (max-width: 750px) {
 			div.card {
 				grid-template-areas:
@@ -238,6 +261,7 @@
 			}
 		}
 	}
+
 	.event-manager-buttons {
 		margin-top: 0.5rem;
 		grid-template-columns: 1fr 1fr;
