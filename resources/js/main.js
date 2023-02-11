@@ -298,6 +298,11 @@ function listTimes() {
 	}
 }
 
+function updateTimes() {
+	clearTimes();
+	listTimes();
+}
+
 function cutOffEvent(i) {
 	// wait for event to be added to the DOM
 	setTimeout(function () {
@@ -342,8 +347,7 @@ function clearTimetable() {
 }
 
 function generateTimetable() {
-	clearTimes();
-	listTimes();
+	updateTimes();
 
 	clearTimetable();
 
@@ -520,6 +524,9 @@ function applySettings() {
 
 	$("#tt-start-am-pm").val(Math.floor(settings.startHour / 12));
 	$("#tt-end-am-pm").val(Math.floor(settings.endHour / 12));
+
+	$("#tt-show-weekends").prop("checked", settings.showWeekends);
+	$("#tt-time-format").val(settings.twentyFourHour ? 1 : 0);
 }
 
 $("#tt-start").change(function () {
@@ -544,6 +551,12 @@ $("#tt-end-am-pm").change(function () {
 
 $("#tt-show-weekends").click(function () {
 	toggleWeekends();
+});
+
+$("#tt-time-format").change(function () {
+	settings.twentyFourHour = parseInt($(this).val());
+	alert(settings.twentyFourHour);
+	updateTimes();
 });
 
 $(document).ready(function () {
